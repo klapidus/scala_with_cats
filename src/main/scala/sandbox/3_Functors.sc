@@ -56,6 +56,8 @@ Functor[Tree].map(Branch(Leaf(5), Leaf(7)))(_ * 2)
 // it can find only Tree.map, but not Branch.map
 // Branch(Leaf(5), Leaf(7)).map(_ * 2)
 
+// for now, skip 3.6: contravariant and invariant functors
+
 
 
 
