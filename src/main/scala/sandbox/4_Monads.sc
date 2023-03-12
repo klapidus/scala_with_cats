@@ -97,3 +97,19 @@ def mapId[A, B](fa: Id[A])(f: A => B): Id[B] =
 // next, finish the Id exercise
 
 
+// Either
+import cats.syntax.either._
+
+val a = 3.asRight[String]
+val b = 5.asRight[String]
+val c = 16.asLeft[Int].toOption
+
+// neat
+Either.catchOnly[NumberFormatException]("foo".toInt)
+Either.fromTry(scala.util.Try("foo".toInt))
+
+"error".asLeft[Int].recover {
+  case _: String => -1
+}
+
+// skip MonadError on this read iteration
