@@ -62,3 +62,19 @@ saying.value
 saying.value
 
 // Trampolining and Eval.defer
+def factorial(n: BigInt): BigInt =
+  if (n==1) n else n * factorial(n - 1)
+
+// fails with StackOverflowError:
+//val f = factorial(50000)
+def factorialEval(n: BigInt): Eval[BigInt] =
+  if (n==1) {
+    Eval.now(n)
+  } else {
+    Eval.defer(factorialEval(n - 1)).map(_ * n)
+  }
+
+// this works now!
+factorialEval(50000).value
+
+// TODO: exercise 4.6.5
