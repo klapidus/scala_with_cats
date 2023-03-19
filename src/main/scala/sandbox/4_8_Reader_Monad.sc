@@ -24,4 +24,7 @@ val greetAndFeed: Reader[Cat, String] =
 
 greetAndFeed.run(Cat("kiki", "fish"))
 
+val hungryCatFromName: Reader[String, Cat] =
+  Reader(name => Cat(name, ""))
+
 // Exercise 4.8.3: TODO
