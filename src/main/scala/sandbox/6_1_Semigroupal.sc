@@ -19,3 +19,9 @@ final case class Cat(name: String, born: Int, color: String)
 (List("Mimi"), List(2010), List("white")).mapN(
   Cat.apply
 )
+
+import cats.instances.list._
+
+// List is a monad, therefore, standard flatMap, map
+// implementation of product is used
+Semigroupal[List].product(List(1,2), List(3,4))
